@@ -52,7 +52,7 @@ public class Main {
 			}
 
 		}
-		
+
 		for ( int i = 0; i < stringClients.size(); i++ ) {
 			listeClients.add( new Client( stringClients.get( i ) ) );
 		}
