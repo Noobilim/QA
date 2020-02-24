@@ -52,6 +52,43 @@ public class Main {
 			}
 
 		}
+		
+		for ( int i = 0; i < stringClients.size(); i++ ) {
+			listeClients.add( new Client( stringClients.get( i ) ) );
+		}
 
+		for ( int i = 0; i < stringPlats.size(); i++ ) {
+			listePlats.add( new Plat( stringPlats.get( i ).split( " " )[0],
+					Double.parseDouble( stringPlats.get( i ).split( " " )[1] ) ) );
+		}
+
+		for ( int i = 0; i < stringComm.size(); i++ ) {
+			listeCommandes.add( new Commande( stringComm.get( i ).split( " " )[0], stringComm.get( i ).split( " " )[1],
+					Integer.parseInt( stringComm.get( i ).split( " " )[2] ) ) );
+		}
+
+		System.out.println( "Bienvenue chez Barette!" );
+		System.out.println( "Factures:" );
+
+		for ( int k = 0; k < listeClients.size(); k++ ) {
+			
+			double prix = 0;
+
+			for ( int i = 0; i < listeCommandes.size(); i++ ) {
+				
+				if ( listeCommandes.get( i ).getName().equals( listeClients.get( k ).getName() ) ) {
+					
+					for ( int j = 0; j < listePlats.size(); j++ ) {
+						
+						if ( listeCommandes.get( i ).getPlat().equals( listePlats.get( j ).getName() ) ) {
+							
+							prix += ( listePlats.get( j ).getPrix() * listeCommandes.get( i ).getQuantite() );
+						}
+					}
+				}
+			}
+			System.out.println(
+					listeClients.get( k ).getName() + " " + new DecimalFormat( "0.00" ).format( prix ) + "$" );
+		}
 	}
 }
