@@ -1,0 +1,7 @@
+Normes de programmation :
+-Le nom des classes commence toujours par une majuscule
+-Le nom des variables commence par une minuscule, des mots ajoutes 
+apres le premier mot commence par une majuscule, pas de symboles
+-Utiliser des classes differentes pour des objets differents
+-Utiliser des "getters" et "setters" pour les objets
+-Utiliser la classe principal (main) pour les methodes
